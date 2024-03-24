@@ -22,7 +22,7 @@ parser.add_argument('--image_list', type=str, default=os.path.join(data_path,'li
 parser.add_argument('--err_path', type=str, default='./index/err.csv', help='Images with no keypoints detected')
 parser.add_argument('--label_mark', type=str, default='./index/data_label.txt', help='images list')
 parser.add_argument('--land_marks', type=str, default='./index/land_marks.npy', help='key point')
-parser.add_argument('--model_path', type=str, default='/kaggle/input/model-retina/mobilenet0.25_Final.pth', help='RetinaFace model')
+parser.add_argument('--model_path', type=str, default='/kaggle/input/model-retina111/model.pt', help='RetinaFace model')
 args = parser.parse_args(args=[])
 
 

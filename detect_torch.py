@@ -17,9 +17,9 @@ data_path = '/home/lighting/liuhanwei/Occlusion FER/my occusion/RAF/'
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--image_path', type=str, default='/kaggle/input/raf-db/rafdb_basic/Image/aligned', help='old dataset')
-parser.add_argument('--image_save', type=str, default='./newdataset', help='new dataset')
+parser.add_argument('--image_save', type=str, default='/kaggle/working/AMP-Net/newdataset', help='new dataset')
 parser.add_argument('--image_list', type=str, default='/kaggle/input/raf-db/rafdb_basic/EmoLabel/list_patition_label.txt', help='images index')
-parser.add_argument('--err_path', type=str, default='./index/err.csv', help='Images with no keypoints detected')
+parser.add_argument('--err_path', type=str, default='/kaggle/working/AMP-Net/index/err.csv', help='Images with no keypoints detected')
 parser.add_argument('--label_mark', type=str, default='./index/data_label.txt', help='images list')
 parser.add_argument('--land_marks', type=str, default='./index/land_marks.npy', help='key point')
 parser.add_argument('--model_path', type=str, default='/kaggle/input/model-retina111/model.pt', help='RetinaFace model')

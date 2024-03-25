@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/kaggle/working/AMP-Net/model')
 from model_ampnet import ampnet
 import numpy as np
 import argparse

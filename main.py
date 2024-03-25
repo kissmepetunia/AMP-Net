@@ -303,9 +303,9 @@ def main():
     val_data=myImageFloder(root=data_root, label=test_label, transform=mytransform1)
 
     # load
-    train_loader = torch.utils.data.DataLoader(train_data,batch_size=batch_size, shuffle=True,num_workers= args.num_workers, pin_memory=args.pin_memory)
-    test_loader = torch.utils.data.DataLoader(test_data,batch_size=batch_size, shuffle=True,num_workers=  args.num_workers, pin_memory=args.pin_memory)
-    val_loader = torch.utils.data.DataLoader(val_data,batch_size=batch_size, shuffle=True,num_workers=  args.num_workers, pin_memory=args.pin_memory)
+    train_loader = torch.utils.data.DataLoader(train_data,batch_size=batch_size, shuffle=False,num_workers= args.num_workers, pin_memory=args.pin_memory)
+    test_loader = torch.utils.data.DataLoader(test_data,batch_size=batch_size, shuffle=False,num_workers=  args.num_workers, pin_memory=args.pin_memory)
+    val_loader = torch.utils.data.DataLoader(val_data,batch_size=batch_size, shuffle=False,num_workers=  args.num_workers, pin_memory=args.pin_memory)
 
 
 

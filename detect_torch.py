@@ -106,10 +106,9 @@ def main():
                 # io.imsave(os.path.join(img_save1,image), img_resize)
                 cv2.imwrite(os.path.join(data_save, image), img_resize)
                 mark.append(land_resize)
-                if mark[1].shape == (5,2):
-                    land_marks.append(mark)
-                else:
-                    rect_all_err.append(image)
+                np.array(mark,dtype=object)
+                land_marks.append(mark)
+
             else:
                 rect_all_err.append(image)
         else:

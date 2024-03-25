@@ -106,7 +106,10 @@ def main():
                 # io.imsave(os.path.join(img_save1,image), img_resize)
                 cv2.imwrite(os.path.join(data_save, image), img_resize)
                 mark.append(land_resize)
-                land_marks.append(mark)
+                if mark[1].shape == (5,2):
+                    land_marks.append(mark)
+                else:
+                    rect_all_err.append(image)
             else:
                 rect_all_err.append(image)
         else:
@@ -121,8 +124,8 @@ def main():
     err=pd.DataFrame(rect_all_err,columns=None)
 
     err.to_csv(args.err_path,columns=None,header=None,index=None)
-    print(land_marks)
-    np.save(args.land_marks,land_marks,allow_pickle=True)
+    
+    np.save(args.land_marks,land_marks,dtype=object,allow_pickle=True)
 
     ### Images that do not meet the requirements
     import csv

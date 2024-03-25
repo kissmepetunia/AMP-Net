@@ -124,7 +124,7 @@ def main():
     err=pd.DataFrame(rect_all_err,columns=None)
 
     err.to_csv(args.err_path,columns=None,header=None,index=None)
-    
+    print(len(land_marks))
     np.save(args.land_marks,land_marks,allow_pickle=True)
 
     ### Images that do not meet the requirements

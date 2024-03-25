@@ -193,7 +193,7 @@ now = datetime.datetime.now()
 time_str = now.strftime("[%m-%d]-[%H-%M]-")
 best_acc = 0
 print('Training time: ' + now.strftime("%m-%d %H:%M"))
-data_path = '/home/lighting/liuhanwei/Occlusion FER/my occusion/RAF/dataset'
+data_path = '/kaggle/working/AMP-Net/newdataset'
 
 
 parser = argparse.ArgumentParser()

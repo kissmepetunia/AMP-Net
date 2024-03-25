@@ -224,6 +224,7 @@ print('beta', args.beta1)
 
 def main():
 
+    best_acc = 0
     save_path=args.save_path
     lr=args.lr
     momentum=args.momentum

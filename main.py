@@ -334,12 +334,9 @@ def main():
 
         # remember best acc and save checkpoint
         is_best = val_acc > best_acc
-        print(val_acc)
-        print(val_acc.type)
-        print(best_acc)
         best_acc = max(val_acc, best_acc)
 
-        print('Current best accuracy: ', best_acc.item())
+        print('Current best accuracy: ', best_acc)
         txt_name = 'log/' + time_str + 'log.txt'
         with open(os.path.join(save_path,txt_name), 'a') as f:
             f.write('Current best accuracy: ' + str(best_acc.item()) + '\n')

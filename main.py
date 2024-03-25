@@ -199,7 +199,7 @@ data_path = '/kaggle/working/AMP-Net/newdataset'
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--num_workers',default=16,type=int,metavar='N', help='number of data loading workers')
+parser.add_argument('--num_workers',default=4,type=int,metavar='N', help='number of data loading workers')
 parser.add_argument('--beta1',default=0.5,type=float,metavar='M', help='hyper-parameter ')
 parser.add_argument('--print_freq',default=10,type=int,metavar='N', help='print frequency')
 parser.add_argument('--checkpoint_path',type=str, default='./checkpoint/'+time_str+'model.pth')

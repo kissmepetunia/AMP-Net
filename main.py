@@ -1,6 +1,3 @@
-import sys
-import os
-sys.path.append('/kaggle/working/AMP-Net/model')
 from model_ampnet import ampnet
 import numpy as np
 import argparse
@@ -11,6 +8,7 @@ import time
 from torchvision import datasets, transforms
 import torch.utils.data as data
 import torchvision.models as models
+import os
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
 import datetime
@@ -18,7 +16,6 @@ import matplotlib.pyplot as plt
 from util import *
 from PIL import Image
 ############
-######
 
 #os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 #device = torch.device('cuda:1')
@@ -199,7 +196,7 @@ data_path = '/kaggle/working/AMP-Net/newdataset'
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--num_workers',default=4,type=int,metavar='N', help='number of data loading workers')
+parser.add_argument('--num_workers',default=16,type=int,metavar='N', help='number of data loading workers')
 parser.add_argument('--beta1',default=0.5,type=float,metavar='M', help='hyper-parameter ')
 parser.add_argument('--print_freq',default=10,type=int,metavar='N', help='print frequency')
 parser.add_argument('--checkpoint_path',type=str, default='./checkpoint/'+time_str+'model.pth')
@@ -224,7 +221,6 @@ print('beta', args.beta1)
 
 def main():
 
-    best_acc = 0
     save_path=args.save_path
     lr=args.lr
     momentum=args.momentum
@@ -304,9 +300,9 @@ def main():
     val_data=myImageFloder(root=data_root, label=test_label, transform=mytransform1)
 
     # load
-    train_loader = torch.utils.data.DataLoader(train_data,batch_size=batch_size, shuffle=False,num_workers= args.num_workers, pin_memory=args.pin_memory)
-    test_loader = torch.utils.data.DataLoader(test_data,batch_size=batch_size, shuffle=False,num_workers=  args.num_workers, pin_memory=args.pin_memory)
-    val_loader = torch.utils.data.DataLoader(val_data,batch_size=batch_size, shuffle=False,num_workers=  args.num_workers, pin_memory=args.pin_memory)
+    train_loader = torch.utils.data.DataLoader(train_data,batch_size=batch_size, shuffle=True,num_workers= args.num_workers, pin_memory=args.pin_memory)
+    test_loader = torch.utils.data.DataLoader(test_data,batch_size=batch_size, shuffle=True,num_workers=  args.num_workers, pin_memory=args.pin_memory)
+    val_loader = torch.utils.data.DataLoader(val_data,batch_size=batch_size, shuffle=True,num_workers=  args.num_workers, pin_memory=args.pin_memory)
 
 
 
@@ -336,10 +332,10 @@ def main():
         is_best = val_acc > best_acc
         best_acc = max(val_acc, best_acc)
 
-        print('Current best accuracy: ', best_acc)
+        print('Current best accuracy: ', best_acc.item())
         txt_name = 'log/' + time_str + 'log.txt'
         with open(os.path.join(save_path,txt_name), 'a') as f:
-            f.write('Current best accuracy: ' + str(best_acc) + '\n')
+            f.write('Current best accuracy: ' + str(best_acc.item()) + '\n')
 
         save_checkpoint({'epoch': epoch + 1,
                          'state_dict': model.state_dict(),
@@ -357,7 +353,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
 

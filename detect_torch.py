@@ -107,7 +107,10 @@ def main():
                 cv2.imwrite(os.path.join(data_save, image), img_resize)
                 mark.append(land_resize)
                 np.array(mark,dtype=object)
-                land_marks = np.vstack((land_marks, mark))
+                if land_marks == np.array([]):
+                    land_marks = mark
+                else:
+                    land_marks = np.vstack((land_marks, mark))
 
             else:
                 rect_all_err.append(image)

@@ -62,7 +62,7 @@ def main():
 
 
 
-    land_marks=np.array([])
+    land_marks=[]
     rect_all = []  # rect=[name,[x1,y1,x2,y2]*4,[xx1,xx2,yy1,yy2]*4]
     rect_all_err=[]
 
@@ -106,14 +106,12 @@ def main():
                 # io.imsave(os.path.join(img_save1,image), img_resize)
                 cv2.imwrite(os.path.join(data_save, image), img_resize)
                 mark.append(land_resize)
-                np.array(mark,dtype=object)
+                land_marks.append(mark)
+                land_marks_np = np.array(land_marks,dtype=object)
                 #print(i)
                 #print(land_marks)
                 #print(mark)
-                if i == 0:
-                    land_marks = mark
-                else:
-                    land_marks = np.vstack((land_marks, mark))
+            
 
             else:
                 rect_all_err.append(image)

@@ -339,7 +339,7 @@ def main():
         print('Current best accuracy: ', best_acc)
         txt_name = 'log/' + time_str + 'log.txt'
         with open(os.path.join(save_path,txt_name), 'a') as f:
-            f.write('Current best accuracy: ' + str(best_acc.item()) + '\n')
+            f.write('Current best accuracy: ' + str(best_acc) + '\n')
 
         save_checkpoint({'epoch': epoch + 1,
                          'state_dict': model.state_dict(),

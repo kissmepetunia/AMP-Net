@@ -125,7 +125,7 @@ def main():
 
     err.to_csv(args.err_path,columns=None,header=None,index=None)
     
-    np.save(args.land_marks,land_marks,dtype=object,allow_pickle=True)
+    np.save(args.land_marks,land_marks,allow_pickle=True)
 
     ### Images that do not meet the requirements
     import csv

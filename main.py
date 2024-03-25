@@ -334,6 +334,9 @@ def main():
 
         # remember best acc and save checkpoint
         is_best = val_acc > best_acc
+        print(val_acc)
+        print(val_acc.type)
+        print(best_acc)
         best_acc = max(val_acc, best_acc)
 
         print('Current best accuracy: ', best_acc.item())

@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.append('/kaggle/working/AMP-Net/model')
 from model_ampnet import ampnet
 import numpy as np
 import argparse
@@ -8,7 +11,6 @@ import time
 from torchvision import datasets, transforms
 import torch.utils.data as data
 import torchvision.models as models
-import os
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
 import datetime
